@@ -1,0 +1,10 @@
+{
+    "name": "duer-webpack-cli",
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "基于webpack的命令行工具，开发时通过duer-cli create appName 创建基于webpack5的项目",
+    "scripts": {
+    },
+    "devDependencies": {
+    }
+}

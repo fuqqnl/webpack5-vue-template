@@ -1,0 +1,111 @@
+{
+    "name": "{{ name }}",
+    "version": "1.0.0",
+    "description": "{{ description }}",
+    "main": "index.js",
+    "scripts": {
+      "dev": "cross-env NODE_ENV=development node ./build/dev.js",
+      "dist": "cross-env NODE_ENV=production node ./build/build.js"{{#lint}},
+      "lint": "eslint . --ext {{#tsLint}}.ts,{{/tsLint}}.js",
+      "lint:fix": "eslint --ext {{#tsLint}}.ts,{{/tsLint}}.js --fix"{{/lint}}
+    },
+    "author": "{{ author }}",
+    "private": true,
+    "license": "MIT",
+    {{#lint}}
+    "lint-staged": {
+      "*.({{#tsLint}}t|{{/tsLint}}j)s?(x)": [
+        "npm run lint:fix"
+      ]
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    {{/lint}}
+    "dependencies": {
+      "core-js": "^3.6.5",
+      "vue": "^3.0.5" {{#router}},
+      "vue-router": "^4.0.8" {{/router}}
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.10",
+      "@babel/preset-env": "^7.12.11",
+      "@vue/compiler-sfc": "^3.0.5",
+      "babel-plugin-import": "1.12.0",
+      {{#lint}}
+      "husky": "^7.0.2",
+      "eslint-plugin-prettier": "^3.4.0",
+      "eslint-friendly-formatter": "^3.0.0",
+      "babel-eslint": "^10.1.0",
+      "eslint": "^7.28.0",
+      "eslint-plugin-vue": "^4.0.0",
+      "stylelint": "^13.9.0",
+      "vue-eslint-parser": "^7.3.0",
+      "@babel/eslint-parser": "^7.12.1",
+      "@babel/eslint-plugin": "^7.12.1",
+      "eslint-plugin-babel": "^5.3.1",
+      {{#tsLint}}
+      "typescript": "^4.0.2",
+      "@typescript-eslint/eslint-plugin": "^4.26.0",
+      "@typescript-eslint/parser": "^4.10.0",
+      {{/tsLint}}
+      {{#if_eq lintConfig "ecomfe"}}
+      "@ecomfe/eslint-config": "^7.0.0",
+      "@ecomfe/stylelint-config": "^1.1.1",
+      {{/if_eq}}
+      {{#if_eq lintConfig "standard"}}
+      "eslint-config-standard": "^10.2.1",
+      {{/if_eq}}
+      "eslint-plugin-promise": "^5.1.0",
+      "eslint-plugin-import": "^2.24.2",
+      "eslint-config-prettier": "^8.3.0",
+      {{/lint}}
+      {{#if_eq runner "jest"}}
+      "babel-jest": "^27.2.4",
+      "babel-plugin-dynamic-import-node": "^2.3.3",
+      "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+      "jest": "^27.2.4",
+      "jest-serializer-vue": "^2.0.2",
+      "vue-jest": "^3.0.7",
+      {{/if_eq}}
+      {{#if_eq runner "karma"}}
+      "cross-env": "^7.0.3",
+      "karma": "^6.3.4",
+      "karma-coverage": "^2.0.3",
+      "karma-mocha": "^2.0.1",
+      "karma-phantomjs-launcher": "^1.0.4",
+      "karma-phantomjs-shim": "^1.5.0",
+      "karma-sinon-chai": "^2.0.2",
+      "karma-sourcemap-loader": "^0.3.8",
+      "karma-spec-reporter": "0.0.32",
+      "karma-webpack": "^5.0.0",
+      "mocha": "^9.1.2",
+      "chai": "^4.3.4",
+      "sinon": "^11.1.2",
+      "sinon-chai": "^3.7.0",
+      "inject-loader": "^4.0.1",
+      "babel-plugin-istanbul": "^6.0.0",
+      "phantomjs-prebuilt": "^2.1.14",
+      {{/if_eq}}
+      "babel-loader": "^8.2.2",
+      "clean-webpack-plugin": "^3.0.0",
+      "cross-env": "^7.0.3",
+      "css-loader": "^5.0.1",
+      "html-webpack-plugin": "^5.3.1",
+      "less": "^3.13.1",
+      "less-loader": "^4.1.0",
+      "mini-css-extract-plugin": "^1.6.0",
+      "prismjs": "^1.23.0",
+      "style-loader": "^2.0.0",
+      "terser-webpack-plugin": "^5.1.3",
+      "vue-loader": "^16.1.2",
+      "webpack": "^5.17.0",
+      "webpack-cli": "^4.4.0",
+      "webpack-dev-server": "^3.11.2",
+      "webpack-hot-middleware": "^2.25.0",
+      "webpack-merge": "^5.8.0"
+    }
+  }
+  
