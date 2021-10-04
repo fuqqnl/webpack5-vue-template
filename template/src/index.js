@@ -34,8 +34,8 @@ const router = createRouter({
 });
 {{/router}}
 
-var siteApp = createApp(app);
+const vm = createApp(app);
 {{#router}}
 siteApp.use(router);
 {{/router}}
-siteApp.mount('#app');
+vm.mount('#app');

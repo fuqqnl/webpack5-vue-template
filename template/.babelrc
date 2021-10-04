@@ -6,11 +6,5 @@
                 "targets": {"browsers": [">1%", "last 2 versions", "safari >= 7"]}
             }
         ]
-    ],
-    "plugins": [
-        [
-            "import",
-            { "libraryName": "duer-cli", "libraryDirectory": "es", "style": true }
-        ]
     ]
 }
