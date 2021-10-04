@@ -7,7 +7,7 @@
       "dev": "cross-env NODE_ENV=development node ./build/dev.js",
       "dist": "cross-env NODE_ENV=production node ./build/build.js"{{#lint}},
       "lint": "eslint . --ext {{#tsLint}}.ts,{{/tsLint}}.js",
-      "lint:fix": "eslint --ext {{#tsLint}}.ts,{{/tsLint}}.js --fix src/"{{/lint}}
+      "lint:fix": "eslint --ext {{#tsLint}}.ts,{{/tsLint}}.js --fix src/",{{/lint}}
       {{#if_eq runner "jest"}}
       "unit": "jest --config test/unit/jest.conf.js --coverage",
       {{/if_eq}}
