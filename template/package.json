@@ -7,7 +7,13 @@
       "dev": "cross-env NODE_ENV=development node ./build/dev.js",
       "dist": "cross-env NODE_ENV=production node ./build/build.js"{{#lint}},
       "lint": "eslint . --ext {{#tsLint}}.ts,{{/tsLint}}.js",
-      "lint:fix": "eslint --ext {{#tsLint}}.ts,{{/tsLint}}.js --fix"{{/lint}}
+      "lint:fix": "eslint --ext {{#tsLint}}.ts,{{/tsLint}}.js --fix src/"{{/lint}}
+      {{#if_eq runner "jest"}}
+      "unit": "jest --config test/unit/jest.conf.js --coverage",
+      {{/if_eq}}
+      {{#if_eq runner "karma"}}
+      "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+      {{/if_eq}}
     },
     "author": "{{ author }}",
     "private": true,
@@ -36,7 +42,6 @@
       "babel-plugin-import": "1.12.0",
       {{#lint}}
       "husky": "^7.0.2",
-      "eslint-plugin-prettier": "^3.4.0",
       "eslint-friendly-formatter": "^3.0.0",
       "babel-eslint": "^10.1.0",
       "eslint": "^7.28.0",
@@ -60,7 +65,6 @@
       {{/if_eq}}
       "eslint-plugin-promise": "^5.1.0",
       "eslint-plugin-import": "^2.24.2",
-      "eslint-config-prettier": "^8.3.0",
       {{/lint}}
       {{#if_eq runner "jest"}}
       "babel-jest": "^27.2.4",

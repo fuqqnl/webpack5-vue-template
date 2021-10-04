@@ -49,7 +49,19 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
-
+            {{#tsLint}}
+            {
+                test: /\.ts?$/,
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        appendTsxSuffixTo: [/\.vue$/],
+                        transpileOnly: true
+                    }
+                },
+                exclude: /node_modules/,
+            },
+            {{/tsLint}}
             {
                 test: /\.css?$/,
                 use: [
