@@ -19,7 +19,7 @@ describe('HelloWorld.vue', () => {
           }
       }
   }
-  createApp(app).mount(document.createElement('div'));
+  const vm = createApp(app).mount(document.createElement('div'));
   expect(vm.$el.querySelector('#msg').textContent)
     {{#if_eq runner "karma"}}.to.equal('Welcome to Your new Project'){{/if_eq}}{{#if_eq runner "jest"}}.toEqual('Welcome to Your new Project'){{/if_eq}}
   })
