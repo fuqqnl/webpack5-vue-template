@@ -1,5 +1,9 @@
 import {createApp} from 'vue';
 import HelloWorld from '@/components/HelloWorld';
+{{#if_eq runner "karma"}}
+import chai from 'chai';
+const expect = chai.expect;
+{{/if_eq}}
 
 describe('HelloWorld.vue', () => {
   it('should render correct contents', () => {
