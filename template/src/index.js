@@ -36,6 +36,6 @@ const router = createRouter({
 
 const vm = createApp(app);
 {{#router}}
-siteApp.use(router);
+vm.use(router);
 {{/router}}
 vm.mount('#app');

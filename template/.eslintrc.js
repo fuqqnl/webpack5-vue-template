@@ -7,7 +7,6 @@ module.exports = {
         "eslint:recommended",
         {{#tsLint}}
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-        'es/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
         {{/tsLint}}
         {{#if_eq lintConfig "ecomfe"}}
         '@ecomfe/eslint-config/baidu/defect',
