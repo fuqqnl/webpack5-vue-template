@@ -5,7 +5,7 @@
 const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.conf');
 const config = require('../config');
-const utils = require('./utils');
+const {styleLoaders} = require('./utils');
 
 module.exports = merge(baseConfig, {
     output: {
@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
         filename: '[name].js'
     },
     module: {
-        rules: utils.styleLoaders({
+        rules: styleLoaders({
             sourceMap: false,
             extract: false,
             usePostCSS: true

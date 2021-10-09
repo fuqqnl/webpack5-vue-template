@@ -6,7 +6,8 @@ const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.conf');
 const config = require('../config');
 const TerserPlugin = require('terser-webpack-plugin');
-const utils = require('./utils');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {assetsPath, styleLoaders} = require('./utils');
 
 module.exports = merge(baseConfig, {
     output: {
@@ -15,7 +16,7 @@ module.exports = merge(baseConfig, {
         filename: '[name].[chunkhash:6].js'
     },
     module: {
-        rules: utils.styleLoaders({
+        rules: styleLoaders({
             sourceMap: false,
             extract: true,
             usePostCSS: true
