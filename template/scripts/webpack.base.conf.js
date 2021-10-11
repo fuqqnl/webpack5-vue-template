@@ -12,16 +12,11 @@ const NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader/dist/index');
 
-const assetsPath = (path) => {
-    const assetsSubDirectory =
-        process.env.NODE_ENV === 'production' ? config.build.assetsSubDirectory : config.dev.assetsSubDirectory;
-    return posix.join(assetsSubDirectory, path);
-};
 module.exports = {
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? false : 'eval-cheap-module-source-map',
     entry: {
-        app: resolve('src/index.js'),
+        main: resolve('src/index.js'),
     },
     output: {
         path: config.dev.assetsRoot,
@@ -29,7 +24,7 @@ module.exports = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['.js', '.vue', '.less'],
+        extensions: ['.js', '.vue', '.less', '.ts', '.tsx'],
         alias: {
             'vue': 'vue/dist/vue.esm-bundler.js',
             '@': resolve('src'),
@@ -48,9 +43,8 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
-            {{#tsLint}}
             {
-                test: /\.ts?$/,
+                test: /\.tsx?$/,
                 use: {
                     loader: 'ts-loader',
                     options: {
@@ -60,8 +54,7 @@ module.exports = {
                 },
                 exclude: /node_modules/,
             },
-            {{/tsLint}}
-            
+
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: {

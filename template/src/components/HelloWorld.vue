@@ -16,8 +16,8 @@ export default {
 }
 </script>
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+#msg {
+  background: rgba(0, 255, 0, .6);
 }
 
 </style>

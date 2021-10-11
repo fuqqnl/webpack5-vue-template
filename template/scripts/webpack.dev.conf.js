@@ -5,7 +5,7 @@
 const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.conf');
 const config = require('../config');
-const {styleLoaders} = require('./utils');
+const { styleLoaders } = require('./utils');
 
 module.exports = merge(baseConfig, {
     output: {

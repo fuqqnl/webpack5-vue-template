@@ -5,7 +5,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const webpackDocsConf = require('./scripts/webpack.dist.conf');
+const webpackDocsConf = require('../scripts/webpack.dist.conf');
 
 start().then(stats => {
     if (stats) {
