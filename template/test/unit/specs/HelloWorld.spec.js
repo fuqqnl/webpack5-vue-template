@@ -1,3 +1,6 @@
+/**
+ * TODO 更好的方式是使用test-utils进行针对vue的单测，会更好用一些
+ */
 import {createApp} from 'vue';
 import HelloWorld from '@/components/HelloWorld';
 {{#if_eq runner "karma"}}
